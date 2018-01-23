@@ -1,16 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialsComponent } from './app.materials';
+import { Route } from '@angular/router/src/config';
+import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { NeoPageComponent } from './neo-page/neo-page.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
+const appRoutes: Routes = [
+  { path: '', component: WelcomePageComponent },
+  { path: 'neo', component: NeoPageComponent },
+  { path: 'dashboard', component: DashboardComponent }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomePageComponent,
+    NeoPageComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule
+    RouterModule.forRoot(
+      appRoutes
+    ),
+    BrowserModule,
+    BrowserAnimationsModule,
+    MaterialsComponent,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

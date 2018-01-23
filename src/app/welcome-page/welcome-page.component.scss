@@ -1,0 +1,16 @@
+$page-color: #01579B;
+$font-color: white;
+.jumbotron {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.welcome-page{
+    background: $page-color;
+    height: 100%;
+    color: $font-color;
+    text-align: center;
+}
+.brand {
+    text-align: center;
+    margin-top: 30vh;
+}
