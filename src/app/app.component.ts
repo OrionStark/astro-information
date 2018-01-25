@@ -7,5 +7,5 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  mode = new FormControl('side');
+  mode = new FormControl('over');
 }

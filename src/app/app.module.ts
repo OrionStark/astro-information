@@ -6,10 +6,14 @@ import { Route } from '@angular/router/src/config';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 
+// Services
+import { NasaService } from './services/nasa.service';
+
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { NeoPageComponent } from './neo-page/neo-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: WelcomePageComponent },
@@ -33,7 +37,9 @@ const appRoutes: Routes = [
     MaterialsComponent,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    NasaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
