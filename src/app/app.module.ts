@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsComponent } from './app.materials';
 import { Route } from '@angular/router/src/config';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 // Services
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialsComponent,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
     NasaService

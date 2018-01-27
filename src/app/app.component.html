@@ -1,18 +1,17 @@
 <mat-toolbar color="primary" class="app-nav">
   <mat-toolbar-row>
+    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    <span class="example-spacer"></span>
     <span>Astronomy Information</span>
     <span class="example-spacer"></span>
-    <button mat-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav [mode]="mode.value" position="end" class="my-sidenav" color="primary">
+  <mat-sidenav #sidenav [mode]="mode.value" position="start" class="my-sidenav" color="primary">
     <mat-toolbar color="primary">
       <mat-toolbar-row>
         <mat-icon> apps </mat-icon>
-        <span>Menus</span>
+        <span>Menu</span>
       </mat-toolbar-row>
     </mat-toolbar>
     <button mat-button class="menu-nav" routerLink="/dashboard">
@@ -54,20 +53,20 @@
 
             <!-- Start Date -->
             <mat-form-field>
-              <input matInput [matDatepicker]="picker1" placeholder="Choose a start date">
+              <input matInput [matDatepicker]="picker1" placeholder="Choose a start date" [(ngModel)]="NEO_start_date">
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker touchUi="true" #picker1></mat-datepicker>
             </mat-form-field>
 
             <!-- End Date -->
             <mat-form-field>
-              <input matInput [matDatepicker]="picker2" placeholder="Choose a end date">
+              <input matInput [matDatepicker]="picker2" placeholder="Choose a end date" [(ngModel)]="NEO_end_date" >
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker touchUi="true" #picker2></mat-datepicker>
             </mat-form-field>
 
             <!-- Submit Search -->
-            <button mat-raised-button color="primary">Submit</button>
+            <button mat-raised-button color="primary" (click)="getNEObyDate()">Submit</button>
           </mat-expansion-panel>
         </mat-accordion>
       </mat-expansion-panel>
