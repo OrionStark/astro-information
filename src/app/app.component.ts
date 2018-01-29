@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
     if ( this.NEO_start_date != null && this.NEO_end_date != null ) {
       if ( this.NEO_start_date < this.NEO_end_date ) {
         // Go to next component
-        console.log(this.NEO_start_date.toISOString().substring(0, 10));
-        console.log(this.NEO_end_date.toISOString().substring(0, 10));
+        console.log(this.getDateFormat(this.NEO_start_date));
+        console.log(this.getDateFormat(this.NEO_end_date));
       } else {
         //
         console.log('Date is not valid');
@@ -30,5 +30,29 @@ export class AppComponent implements OnInit {
       //
       console.log('Some of the dates are empty');
     }
+  }
+
+  getDateFormat(date: Date): String {
+    let month = '' + ( date.getMonth() + 1 );
+    let day = '' + date.getDate();
+    const year = '' + date.getFullYear();
+    if ( month.length < 2 ) {
+      month = '0' + month;
+    }
+    if ( day.length < 2 ) {
+      day = '0' + day;
+    }
+
+    return [ year, month, day ].join('-');
+  }
+
+  goToTodayNEO() {
+    this._router.navigate(['/neo', { mode: 'today' }]);
+  }
+  goToMonthlyNEO() {
+    this._router.navigate(['/neo', { mode: 'month' }]);
+  }
+  goToWeeklyNEO() {
+    this._router.navigate(['/neo', { mode: 'week' }]);
   }
 }

@@ -13,12 +13,27 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
   NEO_Today: any;
   private _sub_: any;
   constructor( private _route: ActivatedRoute, private _nasaServices: NasaService ) {
-    this.spinner_visible = true;
-    this.getTodayNEO();
-    setTimeout(() => {
-      this.spinner_visible = false;
-      this.content_visible = true;
-    }, 3000);
+    /*
+      Prepare the spinner and get the data
+    */
+    this._sub_ = this._route.params.subscribe(
+      params => {
+        if ( params['mode'] === 'today' ) {
+          this.spinner_visible = true;
+          this.getTodayNEO();
+          setTimeout(() => {
+            this.spinner_visible = false;
+            this.content_visible = true;
+          }, 3000);
+        } else if ( params['mode'] === 'month' ) {
+          //
+        } else if ( params['mode'] === 'week' ) {
+          //
+        } else {
+          //
+        }
+      }
+    );
    }
 
   ngOnInit() {}
@@ -26,18 +41,18 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {}
 
   getTodayNEO() {
-    this._sub_ = this._nasaServices.getTodayNEO()
+    this._nasaServices.getTodayNEO()
     .subscribe(
       data => {
         const body_JSON = JSON.parse(data.text());
         this.NEO_Today = body_JSON.near_earth_objects[this._nasaServices.getTodayStringDate().toString()];
-        console.log(this.NEO_Today);
       },
       err => {
         console.log('error');
       }
     );
   }
+
   ngOnDestroy() {
     this._sub_.unsubscribe();
   }

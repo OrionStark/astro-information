@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { NeoPageComponent } from './neo-page/neo-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NeoDatePageComponent } from './neo-date-page/neo-date-page.component';
 
 
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     WelcomePageComponent,
     NeoPageComponent,
-    DashboardComponent
+    DashboardComponent,
+    NeoDatePageComponent
   ],
   imports: [
     RouterModule.forRoot(
