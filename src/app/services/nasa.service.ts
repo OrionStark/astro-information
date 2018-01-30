@@ -12,8 +12,23 @@ export class NasaService {
   */
   getTodayNEO() {
     const today = this.getDateFormat(new Date());
-    const _final_url = this.getUrl(today.substring(0, 10), today.substring(0, 10));
+    const _final_url = this.getUrl(today, today);
     return this._http.get(_final_url.toString());
+  }
+
+  getWeeklyNEO() {
+    const _frist_date = this.getFirstDate(new Date());
+    const _last_date = new Date(new Date().setDate(_frist_date.getDate() + 6));
+    const _final_url = this.getUrl(this.getDateFormat(_frist_date), this.getDateFormat(_last_date));
+    return this._http.get(_final_url.toString());
+  }
+
+  getFirstDate( _date: Date ) {
+    const day = _date.getDay() || 7;
+    if ( day !== 1 ) {
+      _date.setHours( -24 * ( day - 1 ) );
+    }
+    return _date;
   }
 
   getTodayStringDate(): String {
@@ -23,7 +38,7 @@ export class NasaService {
   /*
     NASA API required date format like yyyy-mm-dd
   */
-  private getDateFormat(date: Date): String {
+  getDateFormat(date: Date): String {
     let month = '' + ( date.getMonth() + 1 );
     let day = '' + date.getDate();
     const year = '' + date.getFullYear();

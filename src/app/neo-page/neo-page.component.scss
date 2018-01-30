@@ -6,7 +6,7 @@ $wall-color: white;
 }
 .card {
     width: 100%;
-    height: 170px;
+    height: 190px;
     min-width: 280px;
     -webkit-box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
     box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
@@ -16,7 +16,7 @@ $wall-color: white;
     display: none;
 }
 .spinner {
-    margin-left: 50%;
+    margin-left: 47%;
 }
 .card-head {
     height: 22%;
@@ -33,4 +33,5 @@ $wall-color: white;
 .card-foot {
     height: 30%;
     padding-left: 15px;
+    padding-top: 10px;
 }

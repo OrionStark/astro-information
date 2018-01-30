@@ -3,7 +3,7 @@
     <mat-spinner>Loading</mat-spinner>
   </div>
   <div class="container-fluid" *ngIf="content_visible">
-    <h2>Today NEO (Near Earth Objects)</h2>
+    <h2>{{mode_text}} NEO (Near Earth Objects)</h2>
     <div class="row">
       <div class="col col-md-4" *ngFor="let neo of NEO_Today; let i = index">
         <div class="container">
@@ -12,10 +12,11 @@
               <span>{{neo.name}}</span>
             </div>
             <div class="card-content">
-              <span>Distance from Earth : km</span> <br>
-              <span>Diameter : km</span> <br>
-              <span>Speed : m</span> <br>
-              <span>Magnitude :</span>
+              <span>Close Approach Date : {{neo.close_approach_data[0].close_approach_date}}</span> <br>
+              <span>Miss Distance (AU) : {{neo.close_approach_data[0].miss_distance.astronomical}}</span> <br>
+              <span>Estimated Diameter Max (km) : {{neo.estimated_diameter.kilometers.estimated_diameter_max}}</span> <br>
+              <span>Speed (km/s) : {{neo.close_approach_data[0].relative_velocity.kilometers_per_second}}</span> <br>
+              <span>Magnitude : {{neo.absolute_magnitude_h}}</span>
             </div>
             <div class="card-foot">
               <button mat-raised-button color="primary">More</button>
