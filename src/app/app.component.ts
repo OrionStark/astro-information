@@ -22,13 +22,19 @@ export class AppComponent implements OnInit {
         // Go to next component
         console.log(this.getDateFormat(this.NEO_start_date));
         console.log(this.getDateFormat(this.NEO_end_date));
+        const length = (this.NEO_end_date.getDate() - this.NEO_start_date.getDate()) + 1;
+        if ( length > 7 ) {
+          console.log('Out of Bound');
+          return;
+        }
+        this.goToByDateNEO( this.NEO_start_date, this.NEO_end_date, length );
       } else {
-        //
         console.log('Date is not valid');
+        return;
       }
     } else {
-      //
       console.log('Some of the dates are empty');
+      return;
     }
   }
 
@@ -49,10 +55,10 @@ export class AppComponent implements OnInit {
   goToTodayNEO() {
     this._router.navigate(['/neo', { mode: 'today' }]);
   }
-  goToMonthlyNEO() {
-    this._router.navigate(['/neo', { mode: 'month' }]);
-  }
   goToWeeklyNEO() {
     this._router.navigate(['/neo', { mode: 'week' }]);
+  }
+  goToByDateNEO( start_date: Date, end_date: Date, length: Number ) {
+    this._router.navigate(['/neo', { mode: 'getbydate', start: start_date.toDateString(), end: end_date.toDateString(), size: length }]);
   }
 }

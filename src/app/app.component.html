@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="app-nav">
   <mat-toolbar-row>
-    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    <mat-icon (click)="sidenav.toggle()" class="menu-burger">menu</mat-icon>
     <span class="example-spacer"></span>
     <span>Astronomy Information</span>
     <span class="example-spacer"></span>
@@ -36,7 +36,6 @@
         </mat-expansion-panel-header>
         <button mat-raised-button color="primary" (click)="goToTodayNEO()">Today</button>
         <button mat-raised-button color="accent" (click)="goToWeeklyNEO()">Weekly</button>
-        <button mat-raised-button color="warn" routerLink="/neo">Monthly</button>
 
 
         <!-- Expansion modal for search option -->
@@ -52,6 +51,8 @@
             </mat-expansion-panel-header>
 
             <!-- Start Date -->
+            <span>Format: (MM/DD/YYYY)</span> <br>
+            <span>Max request day : 7 days</span>
             <mat-form-field>
               <input matInput [matDatepicker]="picker1" placeholder="Choose a start date" [(ngModel)]="NEO_start_date">
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -66,7 +67,7 @@
             </mat-form-field>
 
             <!-- Submit Search -->
-            <button mat-raised-button color="primary" (click)="getNEObyDate()">Submit</button>
+            <button mat-raised-button color="warn" (click)="getNEObyDate()">Submit</button>
           </mat-expansion-panel>
         </mat-accordion>
       </mat-expansion-panel>
