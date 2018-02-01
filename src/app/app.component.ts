@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   mode = new FormControl('over');
-  NEO_start_date: Date;
-  NEO_end_date: Date;
+  NEO_start_date: any;
+  NEO_end_date: any;
 
   constructor( private _router: Router ) { }
 
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
         // Go to next component
         console.log(this.getDateFormat(this.NEO_start_date));
         console.log(this.getDateFormat(this.NEO_end_date));
-        const length = (this.NEO_end_date.getDate() - this.NEO_start_date.getDate()) + 1;
+        const length = Math.ceil((this.NEO_end_date - this.NEO_start_date) / (1000 * 60 * 60 * 24)) + 1;
         if ( length > 7 ) {
           console.log('Out of Bound');
           return;

@@ -18,7 +18,8 @@ export class NasaService {
 
   getWeeklyNEO() {
     const _frist_date = this.getFirstDate(new Date());
-    const _last_date = new Date(new Date().setDate(_frist_date.getDate() + 6));
+    const _last_date = new Date(new Date().setDate(new Date().getDate() - new Date().getDay() + 7));
+    console.log('' + _frist_date + ': ' + _last_date);
     const _final_url = this.getUrl(this.getDateFormat(_frist_date), this.getDateFormat(_last_date));
     return this._http.get(_final_url.toString());
   }

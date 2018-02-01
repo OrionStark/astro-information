@@ -70,7 +70,7 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
           let date = this._nasaServices.getFirstDate(new Date());
           let count = 0;
           for ( let i = 0; i < 7; i++ ) {
-            date = new Date(curr.setDate(date.getDate() + count));
+            date = new Date(date.setDate(date.getDate() + count));
             tmp.push(body_JSON.near_earth_objects[this._nasaServices.getDateFormat(date).toString()]);
             count = 1;
           }
@@ -85,7 +85,7 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
           this.mode_text = 'Weekly';
         },
         err => {
-          console.log('error');
+          console.log(err);
         }
       );
 
@@ -115,7 +115,10 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
           this.NEO_Today = sec_tmp;
           this.spinner_visible = false;
           this.content_visible = true;
-          this.mode_text = 'Weekly';
+          this.mode_text = '' + start.toString().substring(0, 16) + ' -> ' + end.toString().substring(0, 16);
+        },
+        err => {
+          console.log(err);
         }
       );
   }
