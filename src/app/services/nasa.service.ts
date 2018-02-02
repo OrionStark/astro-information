@@ -17,14 +17,23 @@ export class NasaService {
   }
 
   getWeeklyNEO() {
-    const _frist_date = this.getFirstDate(new Date());
+    const _first_date = this.getFirstDate(new Date());
     const _last_date = new Date(new Date().setDate(new Date().getDate() - new Date().getDay() + 7));
-    console.log('' + _frist_date + ': ' + _last_date);
-    const _final_url = this.getUrl(this.getDateFormat(_frist_date), this.getDateFormat(_last_date));
+    console.log('' + _first_date + ': ' + _last_date);
+    const _final_url = this.getUrl(this.getDateFormat(_first_date), this.getDateFormat(_last_date));
     return this._http.get(_final_url.toString());
   }
 
-  getFirstDate( _date: Date ) {
+  getLastWeekNEO() {
+    const _first_date = this.getFirstDate(new Date(this.getFirstDate( new Date()) - 86400000));
+    const tmp = new Date(_first_date);
+    const _last_date = new Date(tmp.setDate(tmp.getDate() - tmp.getDay() + 7));
+    console.log('Last Week : ' + _first_date + ': ' + _last_date);
+    const _final_url = this.getUrl(this.getDateFormat(_first_date), this.getDateFormat(_last_date));
+    return this._http.get(_final_url.toString());
+  }
+
+  getFirstDate( _date: Date ): any {
     const day = _date.getDay() || 7;
     if ( day !== 1 ) {
       _date.setHours( -24 * ( day - 1 ) );
