@@ -1,0 +1,13 @@
+<h2 mat-dialog-title class="title">Name : {{object.name}}</h2>
+<div mat-dialog-content>
+    <span class="desc">Hazardous Potentially Asteroid</span>:<span>{{object.is_potentially_hazardous_asteroid}}</span> <br>
+    <span class="desc">Estimated Diameter Minimal (km)</span>:<span> {{object.estimated_diameter.kilometers.estimated_diameter_min}}</span><br>
+    <span class="desc">Estimated Diameter Maximal (km)</span>:<span> {{object.estimated_diameter.kilometers.estimated_diameter_max}}</span><br>
+    <span class="desc">Miss Distance (AU) </span>:<span> {{object.close_approach_data[0].miss_distance.astronomical}}</span><br>
+    <span class="desc">Orbiting Body </span>:<span> {{object.close_approach_data[0].orbiting_body}}</span><br>
+    <span class="desc">Relative Velocity (km/h)</span>:<span>{{object.close_approach_data[0].relative_velocity.kilometers_per_hour}}</span><br>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="okButtonClicked()">Ok</button>
+    <button mat-raised-button color="accent" (click)="gotoJPL(object.nasa_jpl_url)"> Go to JPL </button>
+</div>

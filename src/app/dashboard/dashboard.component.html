@@ -6,7 +6,8 @@
 </div>
 <div class="jumbotron">
   <div class="container-fluid graph-content">
-    <h1>NEO Statistics</h1>
+    <h2>NEO Statistics</h2>
+    <p>Statistic about amount of objects near earth this week and last week.</p>
     <div class="row">
       <div class="col-md-6">
         <div class="container">
@@ -24,10 +25,22 @@
       </div>
       <div class="col-md-12">
         <div class="container">
+          <h3>This week statistic compare to last week</h3>
           <div ng-if="data_set">
             <canvas id="weekly_stats_and_last">{{ third_chart }}</canvas>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="jumbotron">
+  <div class="container graph-content">
+    <h3>Potentially Hazardous Asteroid Statistic</h3>
+    <p>This week and last week</p>
+    <div class="col-md-12">
+      <div ng-if="data_set">
+        <canvas id="hazardous_potentially">{{ hazardous_potentially_chart }}</canvas>
       </div>
     </div>
   </div>

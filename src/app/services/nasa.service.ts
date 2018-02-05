@@ -42,10 +42,6 @@ export class NasaService {
     return _date;
   }
 
-  getTodayStringDate(): String {
-    return this.getDateFormat(new Date());
-  }
-
   /*
     NASA API required date format like yyyy-mm-dd
   */

@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Inject } from '@angular/core';
 import { NasaService } from '../services/nasa.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-neo-page',
@@ -13,7 +14,8 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
   mode_text: String = '';
   NEO_Today: any;
   private _sub_: any;
-  constructor( private _route: ActivatedRoute, private _nasaServices: NasaService ) {
+  constructor( private _route: ActivatedRoute, private _nasaServices: NasaService,
+  private dialog: MatDialog ) {
     /*
       Prepare the spinner and get the data
     */
@@ -46,10 +48,11 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
     .subscribe(
       data => {
         const body_JSON = JSON.parse(data.text());
-        this.NEO_Today = body_JSON.near_earth_objects[this._nasaServices.getTodayStringDate().toString()];
+        this.NEO_Today = body_JSON.near_earth_objects[this._nasaServices.getDateFormat(new Date()).toString()];
         this.spinner_visible = false;
         this.content_visible = true;
         this.mode_text = 'Today';
+        console.log(body_JSON);
       },
       err => {
         console.log('error');
@@ -122,7 +125,34 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       );
   }
+
+  moreInforClicked( data: any ) {
+    const dialogRef = this.dialog.open(NeoDialog, {
+      width: '400px',
+      minWidth: '280px',
+      data: data
+    });
+  }
+
   ngOnDestroy() {
     this._sub_.unsubscribe();
+  }
+}
+
+@Component({
+  selector: 'app-neo-dialog',
+  templateUrl: 'neo-dialog.html',
+  styleUrls: ['./neo-dialog.scss']
+})
+
+export class NeoDialog {
+  constructor( public dialogref: MatDialogRef<NeoDialog>, @Inject(MAT_DIALOG_DATA) public object: any ) {
+    console.log(object);
+  }
+  okButtonClicked() {
+    this.dialogref.close();
+  }
+  gotoJPL(url: string): void {
+    window.open(url, '_blank');
   }
 }

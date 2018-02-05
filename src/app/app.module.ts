@@ -10,9 +10,9 @@ import { Routes, RouterModule } from '@angular/router';
 // Services
 import { NasaService } from './services/nasa.service';
 
-import { AppComponent } from './app.component';
+import { AppComponent, AlertDialog } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { NeoPageComponent } from './neo-page/neo-page.component';
+import { NeoPageComponent, NeoDialog } from './neo-page/neo-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NeoDatePageComponent } from './neo-date-page/neo-date-page.component';
 
@@ -29,7 +29,9 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     NeoPageComponent,
     DashboardComponent,
-    NeoDatePageComponent
+    NeoDatePageComponent,
+    AlertDialog,
+    NeoDialog
   ],
   imports: [
     RouterModule.forRoot(
@@ -41,6 +43,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule
   ],
+  entryComponents: [ AlertDialog, NeoDialog ],
   providers: [
     NasaService
   ],

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
   NEO_start_date: any;
   NEO_end_date: any;
 
-  constructor( private _router: Router ) { }
+  constructor( private my_dialog: MatDialog, private _router: Router ) { }
 
   ngOnInit() {}
 
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
         const length = Math.ceil((this.NEO_end_date - this.NEO_start_date) / (1000 * 60 * 60 * 24)) + 1;
         if ( length > 7 ) {
           console.log('Out of Bound');
+          this.openDialog();
           return;
         }
         this.goToByDateNEO( this.NEO_start_date, this.NEO_end_date, length );
@@ -60,5 +62,25 @@ export class AppComponent implements OnInit {
   }
   goToByDateNEO( start_date: Date, end_date: Date, length: Number ) {
     this._router.navigate(['/neo', { mode: 'getbydate', start: start_date.toDateString(), end: end_date.toDateString(), size: length }]);
+  }
+
+  openDialog(): void {
+    const dialofRef = this.my_dialog.open(AlertDialog, {
+      width: '300px',
+      data: {case: 'error-date'}
+    });
+  }
+}
+
+@Component({
+  selector: 'app-alert-dialog',
+  templateUrl: 'app.alert-dialog.html',
+  styleUrls: ['./app.alert-dialog.scss']
+})
+
+export class AlertDialog {
+  constructor( public dialogref: MatDialogRef<AlertDialog>, @Inject(MAT_DIALOG_DATA) public data: any ) { }
+  okButtonClicked() {
+    this.dialogref.close();
   }
 }
