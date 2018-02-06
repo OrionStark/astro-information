@@ -9,18 +9,21 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Services
 import { NasaService } from './services/nasa.service';
+import { AuroraLiveService } from './services/aurora-live.service';
+import { GoogleServicesService } from './services/google-services.service';
 
 import { AppComponent, AlertDialog } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { NeoPageComponent, NeoDialog } from './neo-page/neo-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NeoDatePageComponent } from './neo-date-page/neo-date-page.component';
+import { AuroraHuntingComponent } from './aurora-hunting/aurora-hunting.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: WelcomePageComponent },
   { path: 'neo', component: NeoPageComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'aurorahunting', component: AuroraHuntingComponent }
 ];
 
 @NgModule({
@@ -29,9 +32,9 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     NeoPageComponent,
     DashboardComponent,
-    NeoDatePageComponent,
     AlertDialog,
-    NeoDialog
+    NeoDialog,
+    AuroraHuntingComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -45,7 +48,9 @@ const appRoutes: Routes = [
   ],
   entryComponents: [ AlertDialog, NeoDialog ],
   providers: [
-    NasaService
+    NasaService,
+    AuroraLiveService,
+    GoogleServicesService
   ],
   bootstrap: [AppComponent]
 })

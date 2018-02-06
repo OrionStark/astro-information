@@ -63,6 +63,9 @@ export class AppComponent implements OnInit {
   goToByDateNEO( start_date: Date, end_date: Date, length: Number ) {
     this._router.navigate(['/neo', { mode: 'getbydate', start: start_date.toDateString(), end: end_date.toDateString(), size: length }]);
   }
+  goToAuroraHunting() {
+    this._router.navigate(['/aurorahunting']);
+  }
 
   openDialog(): void {
     const dialofRef = this.my_dialog.open(AlertDialog, {

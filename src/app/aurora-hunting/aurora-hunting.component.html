@@ -1,0 +1,31 @@
+<div class="jumbotron banner">
+  <div class="container">
+    <h2>Aurora Hunting Locations</h2>
+    <p>Data resources by Aurora.live</p>
+  </div>
+</div>
+<div class="jumbotron">
+  <div class="container-fluid">
+    <h2>Hunting Locations</h2>
+    <div *ngIf="spinner_visible" class="spinner">
+      <mat-spinner>Loading</mat-spinner>
+    </div>
+    <div class="row" *ngIf="content_visible">
+      <div class="col col-md-4" *ngFor="let location of hunting_locations; let i = index">
+        <div class="container">
+          <div class="card">
+            <div class="card-head">
+              <span class="name">Location: {{location.name}}</span>
+            </div>
+            <div class="card-body">
+              <img src="{{getStaticMapImage(location.lat, location.long)}}" alt="" class="img-responsive">
+            </div>
+            <div class="cardfooter">
+              <span class="desc">Description: {{location.description}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

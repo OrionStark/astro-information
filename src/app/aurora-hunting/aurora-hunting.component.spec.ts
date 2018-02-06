@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NeoDatePageComponent } from './neo-date-page.component';
+import { AuroraHuntingComponent } from './aurora-hunting.component';
 
-describe('NeoDatePageComponent', () => {
-  let component: NeoDatePageComponent;
-  let fixture: ComponentFixture<NeoDatePageComponent>;
+describe('AuroraHuntingComponent', () => {
+  let component: AuroraHuntingComponent;
+  let fixture: ComponentFixture<AuroraHuntingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NeoDatePageComponent ]
+      declarations: [ AuroraHuntingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NeoDatePageComponent);
+    fixture = TestBed.createComponent(AuroraHuntingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

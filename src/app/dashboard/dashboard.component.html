@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div class="container">
           <h3>This week statistic compare to last week</h3>
           <div ng-if="data_set">
@@ -31,16 +31,13 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="jumbotron">
-  <div class="container graph-content">
-    <h3>Potentially Hazardous Asteroid Statistic</h3>
-    <p>This week and last week</p>
-    <div class="col-md-12">
-      <div ng-if="data_set">
-        <canvas id="hazardous_potentially">{{ hazardous_potentially_chart }}</canvas>
+      <div class="col-md-6">
+        <div class="container">
+          <h3>Potentially Hazardous Asteroid Statistic</h3>
+          <div ng-if="data_set">
+            <canvas id="hazardous_potentially">{{ hazardous_potentially_chart }}</canvas>
+          </div>
+        </div>
       </div>
     </div>
   </div>
