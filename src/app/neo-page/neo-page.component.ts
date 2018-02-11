@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy, Inject } from '@angular/co
 import { NasaService } from '../services/nasa.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-neo-page',
@@ -146,13 +147,18 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
 })
 
 export class NeoDialog {
-  constructor( public dialogref: MatDialogRef<NeoDialog>, @Inject(MAT_DIALOG_DATA) public object: any ) {
+  constructor( public dialogref: MatDialogRef<NeoDialog>, @Inject(MAT_DIALOG_DATA) public object: any, private _router: Router ) {
     console.log(object);
   }
   okButtonClicked() {
     this.dialogref.close();
   }
   gotoJPL(url: string): void {
+    this.dialogref.close();
     window.open(url, '_blank');
+  }
+  goToDetails() {
+    this.dialogref.close();
+    this._router.navigate(['/neo-information', { id: this.object.neo_reference_id }]);
   }
 }

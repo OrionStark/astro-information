@@ -34,6 +34,11 @@ export class NasaService {
     return this._http.get(_final_url.toString());
   }
 
+  getNEOLookUp( reference_id: string ) {
+    const url = 'https://api.nasa.gov/neo/rest/v1/neo/' + reference_id + '?api_key=' + this.API_KEY;
+    return this._http.get(url);
+  }
+
   getFirstDate( _date: Date ): any {
     const day = _date.getDay() || 7;
     if ( day !== 1 ) {

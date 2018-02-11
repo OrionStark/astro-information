@@ -17,13 +17,15 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { NeoPageComponent, NeoDialog } from './neo-page/neo-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuroraHuntingComponent } from './aurora-hunting/aurora-hunting.component';
+import { NeoInformationComponent } from './neo-information/neo-information.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: WelcomePageComponent },
   { path: 'neo', component: NeoPageComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'aurorahunting', component: AuroraHuntingComponent }
+  { path: 'aurorahunting', component: AuroraHuntingComponent },
+  { path: 'neo-information', component: NeoInformationComponent }
 ];
 
 @NgModule({
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     AlertDialog,
     NeoDialog,
-    AuroraHuntingComponent
+    AuroraHuntingComponent,
+    NeoInformationComponent
   ],
   imports: [
     RouterModule.forRoot(
