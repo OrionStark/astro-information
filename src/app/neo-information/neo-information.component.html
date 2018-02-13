@@ -1,39 +1,192 @@
 <div class="jumbotron banner">
   <div class="container">
-    <h1 class="object-name">Name of the object</h1>
+    <h1 class="object-name">Object Information</h1>
+  </div>
+</div>
+<div class="jumbotron orbit-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="row">
+          <div class="col-md-12">
+              <div class="container orbit-card-name">
+                  <div class="">
+                    <span class="label"> <mat-icon>label</mat-icon> Name</span>
+                    <div *ngIf="!neo_data" class="spinner">
+                      <mat-spinner color="warn"></mat-spinner>
+                    </div>
+                    <div *ngIf="neo_data">
+                      <h2 class="name">{{neo_data.name}}</h2>
+                      <h6 class="reference">{{neo_data.neo_reference_id}}</h6>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      
+            <div class="col-md-12">
+              <div class="container simple-info-card">
+                <span class="label"> <mat-icon>label</mat-icon> Estimated Diameter</span><br>
+                <div *ngIf="!neo_data" class="spinner">
+                  <mat-spinner color="primary"></mat-spinner>
+                </div>
+                <div *ngIf="neo_data">
+                  <h2 class="diameter-data"> Min : {{neo_data.estimated_diameter.kilometers.estimated_diameter_min}}km </h2>
+                  <h2> Max : {{neo_data.estimated_diameter.kilometers.estimated_diameter_max}}km </h2>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="row">
+            <div class="container">
+                <div class="orbit-card">
+                  <div class="head">
+                    <span class="label"> <mat-icon>label</mat-icon> Orbit Data </span>
+                  </div>
+                  <div class="body">
+                    <div *ngIf="!neo_data" class="spinner">
+                      <mat-spinner color="warn"></mat-spinner>
+                    </div>
+                    <div class="row" *ngIf="neo_data">
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Aphelion distance:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.aphelion_distance}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Ascending node longtitude:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.ascending_node_longtitude}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Eccentricity:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.eccentricity}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Epoch osculation:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.epoch_osculation}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Equinox:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.equinox}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Inclination:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.inclination}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Mean anomaly:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.mean_anomaly}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Mean motion:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.mean_motion}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Minimum orbit intersection:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.minimum_orbit_intersection}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Orbit determination date:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.orbit_determination_date}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Orbit Uncertainty:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.orbit_uncertainty}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Orbital period:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.orbital_period}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Perihelion argument:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.perihelion_argument}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Perihelion distance:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.perihelion_distance}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Perihelion time:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.perihelion_time}}</span>
+                      </div>
+                      <div class="col-md-5">
+                          <span class="orbit-data-label">Semi major axis:</span>
+                      </div>
+                      <div class="col-md-7">
+                          <span>{{neo_data.orbital_data.semi_major_axis}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="footer">
+      
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="jumbotron">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col">
         <div class="container-fluid data-table">
-          <mat-form-field>
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          <h2 class="title">Historical Footage</h2>
+          <mat-form-field class="input-field">
+            <input class="input-filter" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
           </mat-form-field>
-          <mat-table #table [dataSource]="dataSource">
+          <mat-icon class="sort-icon">sort</mat-icon>
+          <mat-table #table [dataSource]="dataSource" class="table-content">
 
-            <!-- Position Column -->
             <ng-container matColumnDef="No">
-              <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-              <mat-cell *matCellDef="let i = index"> {{i + 1}} </mat-cell>
+              <mat-header-cell *matHeaderCellDef class="table-label"> No. </mat-header-cell>
+              <mat-cell *matCellDef="let i = index" class="table-label"> {{i + 1}} </mat-cell>
             </ng-container>
         
-            <!-- Name Column -->
             <ng-container matColumnDef="Orbiting Body">
-              <mat-header-cell *matHeaderCellDef> Orbiting Body </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.orbiting_body}} </mat-cell>
-            </ng-container>
+              <mat-header-cell *matHeaderCellDef class="table-label"> Orbiting Body </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-label"> {{element.orbiting_body}} </mat-cell>
+            </ng-container> 
         
-            <!-- Weight Column -->
             <ng-container matColumnDef="Date">
-              <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.close_approach_date}} </mat-cell>
+              <mat-header-cell *matHeaderCellDef class="table-label"> Date </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-label"> {{element.close_approach_date}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="Miss Distance">
-                <mat-header-cell *matHeaderCellDef> Miss Distance(km) </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.miss_distance.kilometers}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef class="table-label"> Miss Distance(km) </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="table-label"> {{element.miss_distance.kilometers}} </mat-cell>
             </ng-container>
         
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
