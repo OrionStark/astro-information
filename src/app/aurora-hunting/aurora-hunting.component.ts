@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuroraLiveService } from '../services/aurora-live.service';
 import { GoogleServicesService } from '../services/google-services.service';
+import { AuroraLocationsModel } from '../model/AuroraLocation';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aurora-hunting',
@@ -10,9 +12,10 @@ import { GoogleServicesService } from '../services/google-services.service';
 export class AuroraHuntingComponent implements OnInit, OnDestroy {
   spinner_visible: Boolean = false;
   content_visible: Boolean = false;
-  hunting_locations: any = [];
+  hunting_locations: AuroraLocationsModel[] = [];
   private sub: any;
-  constructor( private aurora_live_services: AuroraLiveService, private google: GoogleServicesService ) {
+  constructor( private aurora_live_services: AuroraLiveService, private google: GoogleServicesService,
+  private _router: Router ) {
   }
 
   ngOnInit() {
@@ -39,6 +42,10 @@ export class AuroraHuntingComponent implements OnInit, OnDestroy {
 
   getStaticMapImage( lat, lon ) {
     return this.google.getStaticMapImage(lat, lon);
+  }
+
+  goLocationInformation( lat, lon ) {
+    this._router.navigate(['location-info', { lat: lat, long: lon }]);
   }
 
   ngOnDestroy() {

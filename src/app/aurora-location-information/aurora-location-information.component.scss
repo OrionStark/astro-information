@@ -1,0 +1,73 @@
+$white: #ffe;
+
+.jumbotron {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.banner {
+    height: 40vh;
+    background: rgb(19, 119, 185);
+    h2 {
+        text-align: center;
+        margin-top: 5%;
+        color: $white;
+        font-size: 45px;
+    }
+}
+.weather-card {
+    width: 100%;
+    height: auto;
+    background: rgb(1, 117, 153);
+    margin-bottom: 10px;
+    padding-top: 5px;
+    color: white;
+    padding-bottom: 10px;
+    -webkit-box-shadow: 0 6px 12px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,0.3);
+    h2 {
+        font-size: 18px;
+    }
+    .content {
+        padding-left: 30px;
+    }
+}
+.kp-card {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    background: rgb(224, 34, 66);
+    color: white;
+    padding-bottom: 10px;
+    -webkit-box-shadow: 0 6px 12px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,0.3);
+    h2 {
+        font-size: 18px;
+    }
+    .content {
+        padding-left: 30px;
+    }
+}
+.chart-card {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: rgb(241, 69, 25);
+    -webkit-box-shadow: 0 6px 12px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,0.3);
+    padding-top: 5px;
+    padding-bottom: 10px;
+    background: $white;
+    h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+    hr {
+        border-color: rgb(241, 69, 25);
+    }
+}
+.label-info {
+    font-weight: bold;
+    font-size: 15px;
+}

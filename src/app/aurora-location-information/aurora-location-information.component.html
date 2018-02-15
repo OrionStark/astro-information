@@ -1,0 +1,123 @@
+<div class="jumbotron banner">
+  <div class="container">
+    <h2>Location Status</h2>
+  </div>
+</div>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="container weather-card">
+          <div class="head">
+            <h2> <mat-icon>label</mat-icon> Weather</h2>
+          </div>
+          <div class="content">
+            <div class="row">
+              <div class="col-md-4">
+                <span class="label-info">Cloudiness</span>
+              </div>
+              <div class="col-md-8">
+                <span class="label-value">{{weather_data.clouds.all}} %</span>
+              </div>
+              <div class="col-md-4">
+                <span class="label-info">Pressures</span>
+              </div>
+              <div class="col-md-8">
+                <span class="label-value">{{weather_data.main.pressure}} hPa</span>
+              </div>
+              <div class="col-md-4">
+                <span class="label-info">Status</span>
+              </div>
+              <div class="col-md-8">
+                <span class="label-value">{{weather_data.weather[0].main}}</span>
+              </div>
+              <div class="col-md-4">
+                <span class="label-info">Description</span>
+              </div>
+              <div class="col-md-8">
+                <span class="label-value">{{weather_data.weather[0].description}}</span>
+              </div>
+              <div class="col-md-4">
+                <span class="label-info">Temperature</span>
+              </div>
+              <div class="col-md-8">
+                <span class="label-value">{{weather_data.main.temp}}Kelvin</span>
+              </div>
+              <div class="col-md-4">
+                <span class="label-info">Wind speed</span>
+              </div>
+              <div class="col-md-8">
+                <span class="label-value">{{weather_data.wind.speed}} m/s</span>
+              </div>
+              <div class="col-md-4">
+                <span class="label-info">City</span>
+              </div>
+              <div class="col-md-8">
+                <span class="label-value">{{weather_data.name}}</span>
+              </div>  
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 offset-md-2">
+        <div class="container kp-card">
+          <div class="head">
+            <h2> <mat-icon>label</mat-icon> Kp </h2>
+          </div>
+          <div class="content">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="label-info">Kp color</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-value">{{ace_data.colour.kp}}</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-info">Kp First hour color</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-value">{{ace_data.colour.kp1hour}}</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-info">Kp 4th hour color</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-value">{{ace_data.colour.kp4hour}}</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-info">Kp</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-value">{{ace_data.kp}}</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-info">Kp 1st hour</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-value">{{ace_data.kp1hour}}</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-info">Kp 4th hour</span>
+              </div>
+              <div class="col-md-6">
+                <span class="label-value">{{ace_data.kp4hour}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="container chart-card">
+          <div class="head">
+            <h2> <mat-icon>timeline</mat-icon> Forecast Chart</h2><hr width="100px">
+          </div>
+          <div class="content">
+            <div>
+              <canvas id="forecast-weather">{{ chart }}</canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

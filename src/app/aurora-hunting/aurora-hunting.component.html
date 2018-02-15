@@ -1,12 +1,12 @@
 <div class="jumbotron banner">
   <div class="container">
-    <h2>Aurora Hunting Locations</h2>
+    <h2> Aurora Hunting Locations</h2>
     <p>Data resources by Aurora.live</p>
   </div>
 </div>
 <div class="jumbotron">
   <div class="container-fluid">
-    <h2>Hunting Locations</h2>
+    <h2 class="label"> <mat-icon>label</mat-icon> Hunting Locations</h2>
     <div *ngIf="spinner_visible" class="spinner">
       <mat-spinner>Loading</mat-spinner>
     </div>
@@ -15,13 +15,14 @@
         <div class="container">
           <div class="card">
             <div class="card-head">
-              <span class="name">Location: {{location.name}}</span>
+              <span class="name"> <mat-icon>location_on</mat-icon> Location: {{location.name}}</span>
             </div>
             <div class="card-body">
               <img src="{{getStaticMapImage(location.lat, location.long)}}" alt="" class="img-responsive">
+              <span class="desc">Description: {{location.description}}</span><br>
             </div>
             <div class="cardfooter">
-              <span class="desc">Description: {{location.description}}</span>
+              <button mat-raised-button color="primary" (click)="goLocationInformation(location.lat, location.long)">More</button>
             </div>
           </div>
         </div>

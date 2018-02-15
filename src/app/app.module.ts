@@ -11,6 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NasaService } from './services/nasa.service';
 import { AuroraLiveService } from './services/aurora-live.service';
 import { GoogleServicesService } from './services/google-services.service';
+import { OpenWeatherService } from './services/open-weather.service';
 
 import { AppComponent, AlertDialog } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
@@ -18,6 +19,7 @@ import { NeoPageComponent, NeoDialog } from './neo-page/neo-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuroraHuntingComponent } from './aurora-hunting/aurora-hunting.component';
 import { NeoInformationComponent } from './neo-information/neo-information.component';
+import { AuroraLocationInformationComponent } from './aurora-location-information/aurora-location-information.component';
 
 
 const appRoutes: Routes = [
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
   { path: 'neo', component: NeoPageComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'aurorahunting', component: AuroraHuntingComponent },
-  { path: 'neo-information', component: NeoInformationComponent }
+  { path: 'neo-information', component: NeoInformationComponent },
+  { path: 'location-info', component: AuroraLocationInformationComponent }
 ];
 
 @NgModule({
@@ -37,7 +40,8 @@ const appRoutes: Routes = [
     AlertDialog,
     NeoDialog,
     AuroraHuntingComponent,
-    NeoInformationComponent
+    NeoInformationComponent,
+    AuroraLocationInformationComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -53,7 +57,8 @@ const appRoutes: Routes = [
   providers: [
     NasaService,
     AuroraLiveService,
-    GoogleServicesService
+    GoogleServicesService,
+    OpenWeatherService
   ],
   bootstrap: [AppComponent]
 })
