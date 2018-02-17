@@ -7,8 +7,8 @@
 <div class="jumbotron">
   <div class="container-fluid">
     <h2 class="label"> <mat-icon>label</mat-icon> Hunting Locations</h2>
-    <div *ngIf="spinner_visible" class="spinner">
-      <mat-spinner>Loading</mat-spinner>
+    <div *ngIf="spinner_visible">
+      <mat-spinner style="margin:0 auto;" mode="indeterminate">Loading</mat-spinner>
     </div>
     <div class="row" *ngIf="content_visible">
       <div class="col col-md-4" *ngFor="let location of hunting_locations; let i = index">
@@ -22,7 +22,9 @@
               <span class="desc">Description: {{location.description}}</span><br>
             </div>
             <div class="cardfooter">
-              <button mat-raised-button color="primary" (click)="goLocationInformation(location.lat, location.long)">More</button>
+              <button mat-raised-button color="primary" (click)="goLocationInformation(location.lat, location.long)">
+                <mat-icon>explore</mat-icon>Explore
+              </button>
             </div>
           </div>
         </div>

@@ -12,8 +12,8 @@
               <div class="container orbit-card-name">
                   <div class="">
                     <span class="label"> <mat-icon>label</mat-icon> Name</span>
-                    <div *ngIf="!neo_data" class="spinner">
-                      <mat-spinner color="warn"></mat-spinner>
+                    <div *ngIf="!neo_data">
+                      <mat-spinner color="warn" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
                     </div>
                     <div *ngIf="neo_data">
                       <h2 class="name">{{neo_data.name}}</h2>
@@ -26,8 +26,8 @@
             <div class="col-md-12">
               <div class="container simple-info-card">
                 <span class="label"> <mat-icon>label</mat-icon> Estimated Diameter</span><br>
-                <div *ngIf="!neo_data" class="spinner">
-                  <mat-spinner color="primary"></mat-spinner>
+                <div *ngIf="!neo_data">
+                  <mat-spinner color="primary" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
                 </div>
                 <div *ngIf="neo_data">
                   <h2 class="diameter-data"> Min : {{neo_data.estimated_diameter.kilometers.estimated_diameter_min}}km </h2>
@@ -45,8 +45,8 @@
                     <span class="label"> <mat-icon>label</mat-icon> Orbit Data </span>
                   </div>
                   <div class="body">
-                    <div *ngIf="!neo_data" class="spinner">
-                      <mat-spinner color="warn"></mat-spinner>
+                    <div *ngIf="!neo_data">
+                      <mat-spinner color="warn" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
                     </div>
                     <div class="row" *ngIf="neo_data">
                       <div class="col-md-5">

@@ -1,6 +1,6 @@
 <div class="jumbotron">
-  <div *ngIf="spinner_visible" class="spinner">
-    <mat-spinner>Loading</mat-spinner>
+  <div *ngIf="spinner_visible">
+    <mat-spinner style="margin:0 auto;" mode="indeterminate">Loading</mat-spinner>
   </div>
   <div class="container-fluid" *ngIf="content_visible">
     <h2>{{mode_text}} NEO (Near Earth Objects)</h2>

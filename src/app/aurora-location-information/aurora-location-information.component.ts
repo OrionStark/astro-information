@@ -5,6 +5,7 @@ import { CurrentWeatherModel } from '../model/Weather';
 import { AuroraLiveService } from '../services/aurora-live.service';
 import { OpenWeatherService } from '../services/open-weather.service';
 import { Chart } from 'chart.js';
+import { LocationModel } from '../model/Location';
 
 @Component({
   selector: 'app-aurora-location-information',
@@ -36,7 +37,11 @@ export class AuroraLocationInformationComponent implements OnInit, OnDestroy {
    }
 
   getAceData( lat, long ) {
-    this._auroraServices.getAceModulData(lat, long)
+    const location = {
+      lat: lat,
+      long: long
+    };
+    this._auroraServices.getAceModulData(location)
       .subscribe(
         data => {
           this.ace_data = JSON.parse(data.text());

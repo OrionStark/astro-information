@@ -12,7 +12,10 @@
             <h2> <mat-icon>label</mat-icon> Weather</h2>
           </div>
           <div class="content">
-            <div class="row">
+            <div *ngIf="!weather_data" class="spinner">
+              <mat-spinner color="warn" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+            </div>
+            <div class="row" *ngIf="weather_data">
               <div class="col-md-4">
                 <span class="label-info">Cloudiness</span>
               </div>
@@ -65,7 +68,10 @@
             <h2> <mat-icon>label</mat-icon> Kp </h2>
           </div>
           <div class="content">
-            <div class="row">
+            <div *ngIf="!ace_data" class="spinner">
+              <mat-spinner color="primary" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+            </div>
+            <div class="row" *ngIf="ace_data">
               <div class="col-md-6">
                 <span class="label-info">Kp color</span>
               </div>
@@ -112,7 +118,10 @@
             <h2> <mat-icon>timeline</mat-icon> Forecast Chart</h2><hr width="100px">
           </div>
           <div class="content">
-            <div>
+            <div *ngIf="weather_forecast_data.length <= 0" class="spinner">
+              <mat-spinner color="primary" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+            </div>
+            <div *ngIf="weather_forecast_data">
               <canvas id="forecast-weather">{{ chart }}</canvas>
             </div>
           </div>
