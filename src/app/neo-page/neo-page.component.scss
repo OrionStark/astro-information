@@ -3,6 +3,10 @@ $wall-color: white;
 .jumbotron {
     margin-bottom: 0;
     background: $wall-color;
+    h2 {
+        text-align: center;
+        font-size: 28px;
+    }
 }
 .card {
     width: 100%;

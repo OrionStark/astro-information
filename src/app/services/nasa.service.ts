@@ -21,7 +21,7 @@ export class NasaService {
   }
 
   getByDate( start_date: Date, end_date: Date ) {
-    return this._http.get('http://localhost:8080/neo/bydate/' + this.getDateFormat(start_date) + '/' + this.getDateFormat(end_date));
+    return this._http.get('http://localhost:8080/neo/bydate/' + start_date.toString() + '/' + end_date.toString());
   }
 
   /*

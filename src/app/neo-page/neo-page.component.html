@@ -3,13 +3,13 @@
     <mat-spinner style="margin:0 auto;" mode="indeterminate">Loading</mat-spinner>
   </div>
   <div class="container-fluid" *ngIf="content_visible">
-    <h2>{{mode_text}} NEO (Near Earth Objects)</h2>
+    <h2> <mat-icon>today</mat-icon> {{mode_text}} NEO (Near Earth Objects)</h2>
     <div class="row">
       <div class="col col-md-4" *ngFor="let neo of NEO_Today; let i = index">
         <div class="container">
           <div class="card">
             <div class="card-head">
-              <span>{{neo.name}}</span>
+              <span> <mat-icon>label</mat-icon> {{neo.name}}</span>
             </div>
             <div class="card-content">
               <span>Close Approach Date : {{neo.close_approach_data[0].close_approach_date}}</span> <br>
@@ -19,7 +19,10 @@
               <span>Magnitude : {{neo.absolute_magnitude_h}}</span>
             </div>
             <div class="card-foot">
-              <button mat-raised-button color="primary" (click)="moreInforClicked(NEO_Today[i])">More</button>
+              <button mat-raised-button color="primary" (click)="moreInforClicked(NEO_Today[i])">
+                  <mat-icon>more_horiz</mat-icon>
+                More
+              </button>
             </div>
           </div>
         </div>
