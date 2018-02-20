@@ -146,6 +146,7 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
   styleUrls: ['./neo-dialog.scss']
 })
 
+// tslint:disable-next-line:component-class-suffix
 export class NeoDialog {
   constructor( public dialogref: MatDialogRef<NeoDialog>, @Inject(MAT_DIALOG_DATA) public object: any, private _router: Router ) {
     console.log(object);
