@@ -17,9 +17,6 @@ export class NeoPageComponent implements OnInit, AfterViewInit, OnDestroy {
   private _sub_: any;
   constructor( private _route: ActivatedRoute, private _nasaServices: NasaService,
   private dialog: MatDialog ) {
-    /*
-      Prepare the spinner and get the data
-    */
     this._sub_ = this._route.params.subscribe(
       params => {
         if ( params['mode'] === 'today' ) {

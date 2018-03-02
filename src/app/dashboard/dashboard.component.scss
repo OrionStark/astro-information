@@ -32,5 +32,44 @@
     .subtitle{
         text-align: center;
         font-size: 14px;
+        color: #929292;
+    }
+}
+.today-neo {
+    h2 {
+        text-align: center;
+        color: #EF5C29;
+    }
+    .subtitle{
+        text-align: center;
+        font-size: 14px;
+        color: #929292;
+    }
+}
+.neo_today_info {
+    padding-top: 5px;
+}
+.neo-card {
+    width: 100%;
+    height: 180px;
+    color: white;
+    background: #0277BD;
+    margin-bottom: 10px;
+    webkit-box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
+    .neo-card-head {
+        width: 100%;
+        height: 40px;
+        padding: 5px;
+    }
+    .neo-card-body {
+        height: 140px;
+        padding: 5px;
+        line-height: 100px;
+        text-align: center;
+        color: white;
+    }
+    .name {
+        font-size: 30px;
     }
 }

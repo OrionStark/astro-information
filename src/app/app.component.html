@@ -24,6 +24,10 @@
       <mat-icon>place</mat-icon>
        Aurora hunting location
     </button>
+    <button mat-button class="menu-nav">
+      <mat-icon>collections</mat-icon>
+       Mars Rover Curiosity
+    </button>
     <mat-accordion>
 
       <!-- Expansion panel modal NEO by Fixed value -->
@@ -77,42 +81,7 @@
           </mat-expansion-panel>
         </mat-accordion>
       </mat-expansion-panel>
-
-      <!-- Expansion panel modal APOD NASA -->
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            APOD NASA
-          </mat-panel-title>
-          <mat-panel-description>
-            Astronomy Picture of the Day by NASA
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <button mat-raised-button color="primary">
-          <mat-icon>today</mat-icon> Today
-        </button>
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                 <mat-icon>date_range</mat-icon> Search by date
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-form-field>
-              <input matInput [matDatepicker]="picker3" placeholder="Choose a date">
-              <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-              <mat-datepicker touchUi="true" #picker3></mat-datepicker>
-            </mat-form-field>
-            <button mat-raised-button color="warn">
-              <mat-icon>done</mat-icon> Submit
-            </button>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </mat-expansion-panel>
     </mat-accordion>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Weather</button>
-    </mat-menu>
   </mat-sidenav>
 
   <mat-sidenav-content>

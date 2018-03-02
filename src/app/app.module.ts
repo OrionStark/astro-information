@@ -20,6 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuroraHuntingComponent } from './aurora-hunting/aurora-hunting.component';
 import { NeoInformationComponent } from './neo-information/neo-information.component';
 import { AuroraLocationInformationComponent } from './aurora-location-information/aurora-location-information.component';
+import { MarsRoverLandscapeComponent } from './mars-rover-landscape/mars-rover-landscape.component';
 
 
 const appRoutes: Routes = [
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'aurorahunting', component: AuroraHuntingComponent },
   { path: 'neo-information', component: NeoInformationComponent },
-  { path: 'location-info', component: AuroraLocationInformationComponent }
+  { path: 'location-info', component: AuroraLocationInformationComponent },
+  { path: 'mars-curiosity-rover', component: MarsRoverLandscapeComponent }
 ];
 
 @NgModule({
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     NeoDialog,
     AuroraHuntingComponent,
     NeoInformationComponent,
-    AuroraLocationInformationComponent
+    AuroraLocationInformationComponent,
+    MarsRoverLandscapeComponent
   ],
   imports: [
     RouterModule.forRoot(

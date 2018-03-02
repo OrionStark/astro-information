@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ActivatedRoute } from '@angular/router';
 import { NasaService } from '../services/nasa.service';
+import {  } from '../model/NEO';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,6 +23,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   sub: any = null;
   chart = [];
   sec_chart = [];
+  today_NEO: any;
   third_chart = [];
   weekly_statistics_data: any;
   hazardous_potentially_chart = [];
@@ -42,6 +44,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     .subscribe(
       data => {
         const body_JSON = JSON.parse(data.text());
+        this.today_NEO = body_JSON.near_earth_objects[this._nasaServices.getDateFormat(new Date()).toString()];
         let date = this._nasaServices.getFirstDate(new Date());
         let count = 0;
         let hazardous_count = 0;
@@ -235,13 +238,13 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       data: {
         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thrusday', 'Friday', 'Saturday', 'Sunday'],
         datasets: [{
-          label: 'Amount this week',
+          label: 'This week',
           data: this.object_data.hazardous_value,
           borderColor: '#00796B',
           fill: true
         },
           {
-            label: 'Amount last week',
+            label: 'Last week',
             data: this.lastWeek_object_data.hazardous_value,
             borderColor: '#F44336',
             fill: true

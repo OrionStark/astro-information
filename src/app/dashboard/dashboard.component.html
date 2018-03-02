@@ -45,3 +45,33 @@
     </div>
   </div>
 </div>
+<div class="jumbotron neo_today_info">
+  <div class="container-fluid today-neo">
+    <h2>
+      <mat-icon>today</mat-icon>
+      Today NEO</h2>
+    <p class="subtitle">List of today objects</p>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let neo of today_NEO; let i = index">
+        <div class="container">
+          <div class="neo-card">
+            <div class="neo-card-head">
+              <button mat-icon-button [matMenuTriggerFor]="menu"> 
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <span>Info</span>
+                </button>
+              </mat-menu>
+            </div>
+            <div class="neo-card-body">
+              <mat-icon *ngIf="neo.is_potentially_hazardous_asteroid" color="warn" matTooltip="Potential hazardous object" class="warning">warning</mat-icon>
+              <span class="name">{{neo.name}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
