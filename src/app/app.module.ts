@@ -21,6 +21,7 @@ import { AuroraHuntingComponent } from './aurora-hunting/aurora-hunting.componen
 import { NeoInformationComponent } from './neo-information/neo-information.component';
 import { AuroraLocationInformationComponent } from './aurora-location-information/aurora-location-information.component';
 import { MarsRoverLandscapeComponent } from './mars-rover-landscape/mars-rover-landscape.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +31,9 @@ const appRoutes: Routes = [
   { path: 'aurorahunting', component: AuroraHuntingComponent },
   { path: 'neo-information', component: NeoInformationComponent },
   { path: 'location-info', component: AuroraLocationInformationComponent },
-  { path: 'mars-curiosity-rover', component: MarsRoverLandscapeComponent }
+  { path: 'mars-curiosity-rover', component: MarsRoverLandscapeComponent },
+  { path: '404', component: NotfoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({
@@ -44,7 +47,8 @@ const appRoutes: Routes = [
     AuroraHuntingComponent,
     NeoInformationComponent,
     AuroraLocationInformationComponent,
-    MarsRoverLandscapeComponent
+    MarsRoverLandscapeComponent,
+    NotfoundComponent
   ],
   imports: [
     RouterModule.forRoot(

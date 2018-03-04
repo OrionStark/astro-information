@@ -1,27 +1,47 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class NasaService {
   constructor( private _http: Http ) { }
   getTodayNEO() {
-    return this._http.get('http://localhost:8080/neo/today');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('access_mode', 'normalaccess');
+    const options = new RequestOptions({headers: headers});
+    return this._http.get('/api/v1/neo/today', options);
   }
 
   getWeeklyNEO() {
-    return this._http.get('http://localhost:8080/neo/weekly');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('access_mode', 'normalaccess');
+    const options = new RequestOptions({headers: headers});
+    return this._http.get('/api/v1/neo/weekly', options);
   }
 
   getLastWeekNEO() {
-    return this._http.get('http://localhost:8080/neo/lastweek');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('access_mode', 'normalaccess');
+    const options = new RequestOptions({headers: headers});
+    return this._http.get('/api/v1/neo/lastweek', options);
   }
 
   getNEOLookUp( reference_id: string ) {
-    return this._http.get('http://localhost:8080/neo/' + reference_id);
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('access_mode', 'normalaccess');
+    const options = new RequestOptions({headers: headers});
+    return this._http.get('/api/v1/neo/' + reference_id, options);
   }
 
   getByDate( start_date: Date, end_date: Date ) {
-    return this._http.get('http://localhost:8080/neo/bydate/' + start_date.toString() + '/' + end_date.toString());
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('access_mode', 'normalaccess');
+    const options = new RequestOptions({headers: headers});
+    return this._http.get('/api/v1/neo/bydate/' + start_date.toString() + '/' + end_date.toString(), options);
   }
 
   /*
