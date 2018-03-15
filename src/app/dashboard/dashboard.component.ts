@@ -1,5 +1,7 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Chart } from 'chart.js';
+import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NasaService } from '../services/nasa.service';
 import {  } from '../model/NEO';
@@ -29,7 +31,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   hazardous_potentially_chart = [];
 
 
-  constructor( private _route: ActivatedRoute, private _nasaServices: NasaService ) {
+  constructor(private dialog: MatDialog, private _route: ActivatedRoute, private _nasaServices: NasaService ) {
   }
 
   ngOnInit() {
@@ -285,6 +287,36 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   onDestroy() {
     this.sub.unsubscribe();
+  }
+
+  moreNEOInformation(data: any) {
+    const dialogref = this.dialog.open(NeoDashDialog, {
+      width: '400px',
+      minWidth: '280px',
+      data: data
+    });
+  }
+
+}
+@Component({
+  selector: 'app-neo-dashboard',
+  templateUrl: 'neo-dashboard.html',
+  styleUrls: [ './neo-dialog.scss' ]
+})
+// tslint:disable-next-line:component-class-suffix
+export class NeoDashDialog {
+  constructor(private mat_dialog_ref: MatDialogRef<NeoDashDialog>,
+      private _route: Router, @Inject(MAT_DIALOG_DATA) public object: any ) {
+      console.log(object);
+  }
+
+  closeButtonClicked() {
+      this.mat_dialog_ref.close();
+  }
+
+  gotToInformation(url: string) {
+      this.mat_dialog_ref.close();
+      this._route.navigate(['/neo-information', { id: this.object.neo_reference_id }]);
   }
 
 }

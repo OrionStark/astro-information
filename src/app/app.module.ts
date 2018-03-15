@@ -14,6 +14,7 @@ import { GoogleServicesService } from './services/google-services.service';
 import { OpenWeatherService } from './services/open-weather.service';
 
 import { AppComponent, AlertDialog } from './app.component';
+import { NeoDashDialog } from './dashboard/dashboard.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { NeoPageComponent, NeoDialog } from './neo-page/neo-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     NeoInformationComponent,
     AuroraLocationInformationComponent,
     MarsRoverLandscapeComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    NeoDashDialog
   ],
   imports: [
     RouterModule.forRoot(
@@ -60,7 +62,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule
   ],
-  entryComponents: [ AlertDialog, NeoDialog ],
+  entryComponents: [ AlertDialog, NeoDialog, NeoDashDialog ],
   providers: [
     NasaService,
     AuroraLiveService,
