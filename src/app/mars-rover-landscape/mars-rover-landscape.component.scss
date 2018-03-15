@@ -1,0 +1,12 @@
+$primary-color: #01579B;
+$primary-match-color: #0288D1;
+.page-banner {
+    color: white;
+    text-align: center;
+    background: $primary-match-color;
+    height: 40vh;
+    h2 {
+        margin-top: 10px;
+        text-align: center;
+    }
+}

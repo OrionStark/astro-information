@@ -1036,7 +1036,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/mars-rover-landscape/mars-rover-landscape.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  mars-rover-landscape works!\n</p>\n"
+module.exports = "<div class=\"jumbotron page-banner\">\n  <div class=\"container\">\n    <h2>Mars Terrain Photos</h2>\n    <span>Photos taken by NASA rovers on mars</span>\n  </div>\n</div>\n<div class=\"jumbotron\">\n  <div class=\"container\">\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1048,7 +1048,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".page-banner {\n  color: white;\n  text-align: center;\n  background: #0288D1;\n  height: 40vh; }\n  .page-banner h2 {\n    margin-top: 10px;\n    text-align: center; }\n", ""]);
 
 // exports
 
@@ -1064,6 +1064,8 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MarsRoverLandscapeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_nasa_service__ = __webpack_require__("../../../../../src/app/services/nasa.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1074,10 +1076,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var MarsRoverLandscapeComponent = /** @class */ (function () {
-    function MarsRoverLandscapeComponent() {
+    function MarsRoverLandscapeComponent(_http, _nasaServices) {
+        this._http = _http;
+        this._nasaServices = _nasaServices;
     }
     MarsRoverLandscapeComponent.prototype.ngOnInit = function () {
+        this._nasaServices.getMarsPhotos(new Date())
+            .subscribe(function (data) {
+            var json_data = JSON.parse(data.text());
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    MarsRoverLandscapeComponent.prototype.getData = function () {
     };
     MarsRoverLandscapeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -1085,7 +1099,7 @@ var MarsRoverLandscapeComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/mars-rover-landscape/mars-rover-landscape.component.html"),
             styles: [__webpack_require__("../../../../../src/app/mars-rover-landscape/mars-rover-landscape.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_2__services_nasa_service__["a" /* NasaService */]])
     ], MarsRoverLandscapeComponent);
     return MarsRoverLandscapeComponent;
 }());
@@ -1655,6 +1669,15 @@ var NasaService = /** @class */ (function () {
             _date.setHours(-24 * (day - 1));
         }
         return _date;
+    };
+    NasaService.prototype.getMarsPhotos = function (date) {
+        var dateformat = this.getDateFormat(date);
+        var url = '/api/v1/mars/rover-photos/' + dateformat;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        headers.append('access_mode', 'normalaccess');
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        return this._http.get(url, options);
     };
     NasaService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),

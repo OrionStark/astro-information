@@ -66,6 +66,16 @@ export class NasaService {
       _date.setHours( -24 * ( day - 1 ) );
     }
     return _date;
-}
+  }
+
+  getMarsPhotos(date) {
+    const dateformat = this.getDateFormat(date);
+    const url = '/api/v1/mars/rover-photos/' + dateformat;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('access_mode', 'normalaccess');
+    const options = new RequestOptions({headers: headers});
+    return this._http.get(url, options);
+  }
 
 }
